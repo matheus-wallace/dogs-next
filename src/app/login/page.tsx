@@ -1,7 +1,12 @@
-export default async function LoginPage() {
+import LoginForm from '@/Components/Login/Login-form';
+
+const LoginPage = async () => {
   return (
-    <main>
-      <h1>Login</h1>
-    </main>
+    <section className="animeLeft">
+      <h1 className="title">Login</h1>
+      <LoginForm />
+    </section>
   );
-}
+};
+
+export default LoginPage;
