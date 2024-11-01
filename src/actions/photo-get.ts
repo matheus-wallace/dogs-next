@@ -21,9 +21,12 @@ type PhotosGetParams = {
   user?: 0 | string;
 };
 
-export default async function photosGet({ page = 1, total = 6, user = 0 }: PhotosGetParams = {}) {
+export default async function photosGet(
+  { page = 1, total = 6, user = 0 }: PhotosGetParams = {},
+  optionsFront?: RequestInit,
+) {
   try {
-    const options = {
+    const options = optionsFront || {
       next: { revalidate: 10, tags: ['photos'] },
     };
     const { url } = PHOTOS_GET({ page, total, user });
