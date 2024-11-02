@@ -1,6 +1,6 @@
 'use server';
 
-import { PASSSWORD_RESET, USER_POST } from '@/functions/api';
+import { PASSWORD_RESET } from '@/functions/api';
 import apiError from '@/functions/Api-error';
 import login from './login';
 import { redirect } from 'next/navigation';
@@ -12,7 +12,7 @@ export default async function passwordReset(state: {}, formData: FormData) {
 
   try {
     if (!login || !key || !password) throw new Error('Informe os dados');
-    const { url } = PASSSWORD_RESET();
+    const { url } = PASSWORD_RESET();
     const response = await fetch(url, {
       method: 'POST',
       body: formData,
