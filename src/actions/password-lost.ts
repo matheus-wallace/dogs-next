@@ -1,6 +1,6 @@
 'use server';
 
-import { PASSSWORD_LOST, USER_POST } from '@/functions/api';
+import { PASSWORD_LOST } from '@/functions/api';
 import apiError from '@/functions/Api-error';
 import login from './login';
 
@@ -10,7 +10,7 @@ export default async function passwordLost(state: {}, formData: FormData) {
 
   try {
     if (!login) throw new Error('Informe os dados');
-    const { url } = PASSSWORD_LOST();
+    const { url } = PASSWORD_LOST();
     const response = await fetch(url, {
       method: 'POST',
       headers: {
